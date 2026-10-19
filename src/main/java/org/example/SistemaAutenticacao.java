@@ -16,6 +16,8 @@ public class SistemaAutenticacao {
         utilizadoresCadastrados.put(utilizador, senha);
     }
 
+    // Validação de senha implementada
+
     // Valida as credenciais prestadas
     public static boolean fazerLogin(String utilizador, String senha) {
         if (!utilizadoresCadastrados.containsKey(utilizador)) {
