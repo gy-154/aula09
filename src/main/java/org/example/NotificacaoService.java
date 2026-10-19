@@ -1,22 +1,17 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.regex.Pattern;
 
-public class NotificacaoServiceTest {
+public class NotificacaoService {
 
-    private final NotificacaoService notificacaoService = new NotificacaoService();
+    private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+    private static final Pattern PATTERN = Pattern.compile(EMAIL_REGEX);
 
-    @Test
-    public void deveEnviarEmailQuandoEmailForValido() {
-        boolean resultado = notificacaoService.enviarEmail("usuario@exemplo.com", "Olá, mundo!");
-        assertTrue(resultado);
-    }
-
-    @Test
-    public void deveLancarExcecaoQuandoEmailForInvalido() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            notificacaoService.enviarEmail("email-invalido", "Teste");
-        });
+    public boolean enviarEmail(String email, String mensagem) {
+        if (email == null || !PATTERN.matcher(email).matches()) {
+            throw new IllegalArgumentException("Formato de e-mail inválido");
+        }
+        System.out.println("Enviando mensagem para " + email + ": " + mensagem);
+        return true;
     }
 }
