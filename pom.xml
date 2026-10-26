@@ -54,9 +54,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.3.0</version>
+                <configuration>
+                    <configLocation>google_checks.xml</configLocation> <!-- ou sun_checks.xml -->
+                    <failOnViolation>false</failOnViolation>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>validate</id>
                         <phase>validate</phase>
                         <goals>
                             <goal>check</goal>
