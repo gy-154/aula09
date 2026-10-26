@@ -2,9 +2,9 @@ name: Java CI Pipeline
 
 on:
   push:
-    branches: [ "master", "develop", "main" ]
+    branches: [ "master", "develop", "main", "feature/calculadora" ]
   pull_request:
-    branches: [ "master", "develop", "main" ]
+    branches: [ "master", "develop", "main", "feature/calculadora" ]
 
 jobs:
   build-and-test:
